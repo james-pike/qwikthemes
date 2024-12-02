@@ -2,7 +2,7 @@ import {
   $,
   PropsOf,
   component$,
-  useComputed$,
+  
   useSignal,
   useStyles$,
 } from '@builder.io/qwik';
@@ -38,7 +38,7 @@ export interface HeaderProps {
   showBottomBorder?: boolean;
 }
 
-export default component$(({ showVersion = false }: HeaderProps) => {
+export default component$(() => {
   useStyles$(`
     .sidebar-mobile::backdrop {
       background: rgba(0,0,0,0.5);

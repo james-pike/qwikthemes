@@ -19,7 +19,7 @@ import {
   ThemeStyles,
 } from '@qwik-ui/utils';
 import { ModulePreload } from './components/module-preload/module-preload';
-import { ThemeProvider, useTheme } from './lib/provider';
+import { ThemeProvider } from './lib/provider';
 
 export default component$(() => {
   /**
