@@ -19,7 +19,7 @@ import {
   ThemeStyles,
 } from '@qwik-ui/utils';
 import { ModulePreload } from './components/module-preload/module-preload';
-import { ThemeProvider } from './lib/provider';
+import { ThemeProvider, useTheme } from './lib/provider';
 
 export default component$(() => {
   /**
@@ -54,6 +54,8 @@ export default component$(() => {
 // })();
 // `;
 
+
+
   return (
     <QwikCityProvider>
       <head>
@@ -66,7 +68,7 @@ export default component$(() => {
         <ModulePreload />
         <ThemeProvider
           attribute="class"
-          enableSystem={false}
+          enableSystem={false}  
           themes={[
             ...Object.values(ThemeFonts),
             ...Object.values(ThemeModes),
@@ -75,6 +77,7 @@ export default component$(() => {
             ...Object.values(ThemePrimaryColors),
             ...Object.values(ThemeBorderRadiuses),
           ]}
+       
         >
           <RouterOutlet />
         </ThemeProvider>

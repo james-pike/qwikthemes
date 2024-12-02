@@ -7,26 +7,31 @@ import {
   useStyles$,
 } from '@builder.io/qwik';
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { version as headlessVersion } from '../../../../../packages/kit-headless/package.json';
+
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { useLocation } from '@builder.io/qwik-city';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { version as styledKitVersion } from '../../../../../packages/kit-styled/package.json';
-import { GitHubIcon } from '../icons/GitHubIcon';
-import { LogoIcon, LogoWithBorders } from '../icons/logo';
 
-import { useTheme } from '@qwik-ui/themes';
+
+
+
+
 
 import { Modal } from '@qwik-ui/headless';
 import { useAppState } from '~/_state/use-app-state';
 import { LuMenu, LuMoon, LuSun, LuX } from '@qwikest/icons/lucide';
-import { DocsNavigation } from '../navigation-docs/navigation-docs';
-import { useKitMenuItems } from '~/routes/layout';
+
+
 import { cn } from '@qwik-ui/utils';
-import { DiscordIcon } from '../icons/discord';
-import { Button, buttonVariants } from '@qwik-ui/styled';
+
+
 import MakeItYours from '../make-it-yours/make-it-yours';
+import { Button, buttonVariants } from '../ui/button';
+import { useTheme } from '~/lib/provider';
+import { LogoIcon, LogoWithBorders } from '../logo';
+import { DiscordIcon } from '~/icons/DiscordIcon';
+import { GitHubIcon } from '~/icons/GithubIcon';
 
 export interface HeaderProps {
   showVersion?: boolean;
@@ -96,7 +101,7 @@ export default component$(({ showVersion = false }: HeaderProps) => {
     }
     `);
 
-  const { menuItemsGroups } = useKitMenuItems();
+  
 
   const rootStore = useAppState();
   const isSidebarOpenedSig = useSignal(false);
@@ -108,20 +113,7 @@ export default component$(({ showVersion = false }: HeaderProps) => {
         transition-color ease-step duration-300 ${isLinkActive ? 'font-bold' : ''}`;
   };
 
-  const kitSignal = useComputed$(() => {
-    if (location.url.pathname.startsWith('/docs/headless')) {
-      return {
-        name: 'Headless',
-        version: headlessVersion,
-      };
-    }
-    if (location.url.pathname.startsWith('/docs/styled')) {
-      return {
-        name: 'Styled',
-        version: styledKitVersion,
-      };
-    }
-  });
+
 
   const { themeSig } = useTheme();
 
@@ -139,12 +131,7 @@ export default component$(({ showVersion = false }: HeaderProps) => {
             <LogoWithBorders class="hidden sm:block" />
             <LogoIcon class="block sm:hidden" />
           </a>
-          {showVersion && (
-            <div class="ml-4 hidden text-xs md:flex">
-              {kitSignal.value?.name &&
-                kitSignal.value?.name + ' ' + kitSignal.value?.version}
-            </div>
-          )}
+     
         </section>
 
         <div class="mr-4 flex items-center">
@@ -196,12 +183,12 @@ export default component$(({ showVersion = false }: HeaderProps) => {
       </header>
       <Modal.Panel class="sidebar-mobile ml-auto mr-0 h-screen w-full min-w-80 max-w-sm rounded-base border-0 bg-background p-8 text-foreground shadow-md">
         <div class="mb-2 pb-4 pt-2">
-          <DocsNavigation
+          {/* <DocsNavigation
             linksGroups={
               menuItemsGroups && menuItemsGroups.length > 0 ? menuItemsGroups : undefined
             }
             class="max-w-80 overflow-auto bg-background"
-          />
+          /> */}
         </div>
         <button
           autoFocus

@@ -62,6 +62,8 @@ export default component$<PropsOf<typeof Button>>(() => {
     };
   });
 
+  
+
   const themeStoreToThemeClasses$ = $((): string => {
     const { font, mode, style, baseColor, primaryColor, borderRadius } =
       themeComputedObjectSig.value;
@@ -80,7 +82,7 @@ export default component$<PropsOf<typeof Button>>(() => {
       </Modal.Trigger>
       <Modal.Panel >
         <header class="flex w-full">
-          <h2 class="justify-self-start text-lg font-bold">Edit Profile</h2>
+          <h2 class="justify-self-start text-lg font-bold">{themeComputedObjectSig.value.primaryColor}</h2>
         </header>
         <div class="mb-2 mt-8 py-4">
           <label class="mb-1 block font-medium">Preset</label>
@@ -172,6 +174,8 @@ export default component$<PropsOf<typeof Button>>(() => {
                     size="icon"
                     onClick$={async () => {
                       themeComputedObjectSig.value.primaryColor = primaryColor;
+
+                      localStorage.setItem('primaryColor', primaryColor);
                       themeSig.value = await themeStoreToThemeClasses$();
                     }}
                     class={cn(
