@@ -5,8 +5,7 @@ import {
   useSignal,
   useStyles$,
 } from '@builder.io/qwik';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-// eslint-disable-next-line @nx/enforce-module-boundaries
+
 import { useLocation } from '@builder.io/qwik-city';
 import { Modal } from '@qwik-ui/headless';
 import { useAppState } from '~/_state/use-app-state';
