@@ -2,27 +2,15 @@ import {
   $,
   PropsOf,
   component$,
-  
   useSignal,
   useStyles$,
 } from '@builder.io/qwik';
 // eslint-disable-next-line @nx/enforce-module-boundaries
-
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { useLocation } from '@builder.io/qwik-city';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-// eslint-disable-next-line @nx/enforce-module-boundaries
-
-
-
-
-
-
 import { Modal } from '@qwik-ui/headless';
 import { useAppState } from '~/_state/use-app-state';
 import { LuMenu, LuMoon, LuSun, LuX } from '@qwikest/icons/lucide';
-
-
 import { cn } from '@qwik-ui/utils';
 
 
